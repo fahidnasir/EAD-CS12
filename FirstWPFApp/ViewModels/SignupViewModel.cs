@@ -10,17 +10,12 @@ namespace FirstWPFApp.Models
     public class SignupViewModel
     {
         [Required(ErrorMessage = "Email is Required"), EmailAddress]
-        private string _email;
+        public string Email { get; set; }
 
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-
-        [Required(ErrorMessage = "Password is Required")]
+        [Required(ErrorMessage = "Password is Required"), DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Confirm Password is Required"), Compare("Password")]
+
+        [Required(ErrorMessage = "Confirm Password is Required"), DataType(DataType.Password), Compare("Password")]
         public string ConfirmPassword { get; set; }
     }
 }
