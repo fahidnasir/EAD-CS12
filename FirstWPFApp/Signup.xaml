@@ -32,14 +32,14 @@
                  Height="23"
                  MaxLength="50"
                  VerticalAlignment="Top"
-                 Width="{Binding ElementName=txtPassword, Path=Width, Mode=TwoWay, FallbackValue=200}"
+                 Width="200"
                  Margin="10,10,0,0" />
         <PasswordBox x:Name="txtPassword"
                      Grid.Column="1"
                      HorizontalAlignment="Left"
                      Height="23"
                      MaxLength="50"
-                     Width="{Binding ElementName=txtEmail, Path=Width, Mode=TwoWay, FallbackValue=200}"
+                     Width="200"
                      VerticalAlignment="Top"
                      Grid.Row="1"
                      Margin="10,10,0,0" />
