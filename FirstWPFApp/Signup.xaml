@@ -2,10 +2,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ViewModels="clr-namespace:FirstWPFApp.Models"
+        xmlns:Helpers="clr-namespace:FirstWPFApp.Helpers"
         Title="Signup Screen"
         Height="250"
         Width="525">
     <Grid>
+        <Grid.DataContext>
+            <ViewModels:SignupViewModel />
+        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -31,6 +35,7 @@
                Grid.Row="2"
                Margin="0,7,10,0" />
         <TextBox x:Name="txtEmail"
+                 Text="{Binding Path=Email, Mode=TwoWay}"
                  Grid.Column="1"
                  HorizontalAlignment="Left"
                  Height="23"
@@ -39,6 +44,8 @@
                  Width="{Binding ElementName=txtPassword, Path=Width, Mode=TwoWay, FallbackValue=200}"
                  Margin="10,10,0,0" />
         <PasswordBox x:Name="txtPassword"
+                     Helpers:PasswordBindingHelper.BindPassword="true"
+                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=Password, Mode=TwoWay}"
                      Grid.Column="1"
                      HorizontalAlignment="Left"
                      Height="23"
@@ -48,6 +55,8 @@
                      Grid.Row="1"
                      Margin="10,10,0,0" />
         <PasswordBox x:Name="txtConfirmPassword"
+                     Helpers:PasswordBindingHelper.BindPassword="true"
+                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=ConfirmPassword, Mode=TwoWay}"
                      Grid.Column="1"
                      Grid.Row="2"
                      HorizontalAlignment="Left"
