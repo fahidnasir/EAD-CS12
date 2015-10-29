@@ -35,7 +35,7 @@
                Grid.Row="2"
                Margin="0,7,10,0" />
         <TextBox x:Name="txtEmail"
-                 Text="{Binding Path=Email, Mode=TwoWay}"
+                 Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="1"
                  HorizontalAlignment="Left"
                  Height="23"
@@ -45,7 +45,7 @@
                  Margin="10,10,0,0" />
         <PasswordBox x:Name="txtPassword"
                      Helpers:PasswordBindingHelper.BindPassword="true"
-                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=Password, Mode=TwoWay}"
+                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Column="1"
                      HorizontalAlignment="Left"
                      Height="23"
@@ -56,7 +56,7 @@
                      Margin="10,10,0,0" />
         <PasswordBox x:Name="txtConfirmPassword"
                      Helpers:PasswordBindingHelper.BindPassword="true"
-                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=ConfirmPassword, Mode=TwoWay}"
+                     Helpers:PasswordBindingHelper.BoundPassword="{Binding Path=ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Column="1"
                      Grid.Row="2"
                      HorizontalAlignment="Left"
