@@ -6,10 +6,10 @@
         Title="Add User"
         Height="350"
         Width="525">
+    <Window.DataContext>
+        <ViewModels:SignupViewModel />
+    </Window.DataContext>
     <Grid>
-        <Grid.DataContext>
-            <ViewModels:SignupViewModel />
-        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
