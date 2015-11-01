@@ -62,5 +62,9 @@ namespace Lecture7
                 txtPassword.Focus();
             }
         }
+
+        private void btnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

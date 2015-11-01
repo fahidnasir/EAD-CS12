@@ -114,10 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Lecture7.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Lecture7_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Lecture7.mdf</DependentUpon>
     </Content>
   </ItemGroup>
