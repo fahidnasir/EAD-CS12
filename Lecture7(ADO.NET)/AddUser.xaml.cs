@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Lecture7.Models;
 
 namespace Lecture7
 {
@@ -32,9 +33,7 @@ namespace Lecture7
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            string email = txtEmail.Text;
-            string password = txtPassword.Password;
-            string confirmPassword = txtConfirmPassword.Password;
+            SignupViewModel vm = (SignupViewModel)this.DataContext;
         }
     }
 }
