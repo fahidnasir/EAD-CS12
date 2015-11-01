@@ -45,7 +45,16 @@ namespace Lecture7
                 con.Open();
 
                 SqlCommand command = con.CreateCommand();
-                command.CommandText = "INSERT INTO Users VALUES(" + vm.Email + "," + vm.Password + ")";
+                command.CommandText = "INSERT INTO Users VALUES(@email, @password)";
+
+                SqlParameter emailParam = new SqlParameter("email", System.Data.SqlDbType.VarChar, 50);
+                emailParam.Value = vm.Email;
+                command.Parameters.Add(emailParam);
+
+                SqlParameter passParam = new SqlParameter("password", System.Data.SqlDbType.VarChar, 50);
+                passParam.Value = vm.Password;
+                command.Parameters.Add(passParam);
+                
                 int rowsEffected = command.ExecuteNonQuery();
             }
             else
