@@ -24,5 +24,17 @@ namespace Lecture7
         {
             InitializeComponent();
         }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtEmail.Text = txtPassword.Password = txtConfirmPassword.Password = string.Empty;
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string email = txtEmail.Text;
+            string password = txtPassword.Password;
+            string confirmPassword = txtConfirmPassword.Password;
+        }
     }
 }
