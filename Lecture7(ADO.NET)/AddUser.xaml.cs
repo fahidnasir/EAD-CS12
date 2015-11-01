@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +36,22 @@ namespace Lecture7
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             SignupViewModel vm = (SignupViewModel)this.DataContext;
+
+            if (vm.Password == vm.ConfirmPassword)
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+
+                SqlCommand command = con.CreateCommand();
+                command.CommandText = "INSERT INTO Users VALUES(" + vm.Email + "," + vm.Password + ")";
+                int rowsEffected = command.ExecuteNonQuery();
+            }
+            else
+            {
+                txtPassword.Focus();
+            }
         }
     }
 }
