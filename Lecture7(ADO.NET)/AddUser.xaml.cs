@@ -65,6 +65,10 @@ namespace Lecture7
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
+            ShowAll window = new ShowAll();
+            window.Show();
+
+            this.Close();
         }
     }
 }

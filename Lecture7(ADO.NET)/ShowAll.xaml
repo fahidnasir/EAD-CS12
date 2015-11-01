@@ -1,0 +1,6 @@
+﻿<Window x:Class="Lecture7.ShowAll"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="All Users">
+    <DataGrid x:Name="dtAllUsers" />
+</Window>
