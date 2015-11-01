@@ -36,5 +36,25 @@ namespace Lecture7
             dtAllUsers.AutoGenerateColumns = true;
             dtAllUsers.ItemsSource = dt.DefaultView;
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                //Sql Injection Testing Query parameter   ' OR 1=1;--
+
+                SqlCommand command = con.CreateCommand();
+                command.CommandText = "SELECT * FROM Users Where Email = '" + txtEmail.Text + "'";
+                SqlDataReader reader = command.ExecuteReader();
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                dtAllUsers.AutoGenerateColumns = true;
+                dtAllUsers.ItemsSource = dt.DefaultView;
+            }
+        }
     }
 }
