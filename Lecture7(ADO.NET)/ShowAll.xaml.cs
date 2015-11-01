@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Lecture7.Data;
 
 namespace Lecture7
 {
@@ -25,17 +26,12 @@ namespace Lecture7
         public ShowAll()
         {
             InitializeComponent();
+            this.Loaded += ShowAll_Loaded;
+        }
 
-            string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Users";
-
-            SqlDataReader reader = command.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(reader);
+        void ShowAll_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataTable dt = DatabaseHelper.ExecuteReader("SELECT * FROM Users", null);
 
             dtAllUsers.AutoGenerateColumns = true;
             dtAllUsers.ItemsSource = dt.DefaultView;

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Lecture7.Data;
 using Lecture7.Models;
 
 namespace Lecture7
@@ -39,23 +40,16 @@ namespace Lecture7
 
             if (vm.Password == vm.ConfirmPassword)
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-
-                SqlConnection con = new SqlConnection(connectionString);
-                con.Open();
-
-                SqlCommand command = con.CreateCommand();
-                command.CommandText = "INSERT INTO Users VALUES(@email, @password)";
-
+                SqlParameter[] paramsList = new SqlParameter[2];
                 SqlParameter emailParam = new SqlParameter("email", System.Data.SqlDbType.VarChar, 50);
                 emailParam.Value = vm.Email;
-                command.Parameters.Add(emailParam);
+                paramsList[0] = emailParam;
 
                 SqlParameter passParam = new SqlParameter("password", System.Data.SqlDbType.VarChar, 50);
                 passParam.Value = vm.Password;
-                command.Parameters.Add(passParam);
-                
-                int rowsEffected = command.ExecuteNonQuery();
+                paramsList[1] = passParam;
+
+                int rowsEffected = DatabaseHelper.ExecuteNonQuery("INSERT INTO Users VALUES(@email, @password)", paramsList);
             }
             else
             {

@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\DatabaseHelper.cs" />
     <Compile Include="ShowAll.xaml.cs">
       <DependentUpon>ShowAll.xaml</DependentUpon>
     </Compile>
