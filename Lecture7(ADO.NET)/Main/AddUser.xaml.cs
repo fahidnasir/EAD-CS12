@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lecture7.Data;
-using Lecture7.Models;
+using Lecture7.ViewModels;
 
 namespace Lecture7
 {

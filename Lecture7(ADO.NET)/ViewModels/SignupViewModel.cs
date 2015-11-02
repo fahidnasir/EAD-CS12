@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lecture7.Models
+namespace Lecture7.ViewModels
 {
     public class SignupViewModel
     {

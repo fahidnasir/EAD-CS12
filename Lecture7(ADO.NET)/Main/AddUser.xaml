@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Lecture7.AddUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ViewModels="clr-namespace:Lecture7.Models"
+        xmlns:ViewModels="clr-namespace:Lecture7.ViewModels;assembly=ViewModels"
         xmlns:Helpers="clr-namespace:Lecture7.Helpers"
         Title="Add User"
         Height="350"
