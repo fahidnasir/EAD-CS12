@@ -8,45 +8,54 @@
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="118*" />
-            <ColumnDefinition Width="399*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <Label x:Name="label"
-               Content="Label"
-               HorizontalAlignment="Left"
-               Margin="24,105,0,0"
-               VerticalAlignment="Top" />
+        <Label Content="First Name"
+               Grid.Row="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        <Label Content="Last Name"
+               Grid.Row="1"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        <Label Content="Full Name"
+               Grid.Row="2"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        
         <TextBox x:Name="txtFirstName"
                  Grid.Column="1"
                  HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
                  Height="23"
-                 Margin="86,71,0,0"
                  TextWrapping="Wrap"
                  Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 VerticalAlignment="Top"
                  Width="120" />
         <TextBox x:Name="txtLastName"
                  Grid.Column="1"
+                 Grid.Row="1"
                  HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
                  Height="23"
-                 Margin="86,33,0,0"
                  TextWrapping="Wrap"
                  Text="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                 VerticalAlignment="Top"
                  Width="120" />
         <TextBox x:Name="txtFullName"
                  Grid.Column="1"
+                 Grid.Row="2"
                  HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
                  Height="23"
                  IsEnabled="False"
-                 Margin="86,117,0,0"
                  TextWrapping="Wrap"
                  Text="{Binding Path=FullName, Mode=OneWay, UpdateSourceTrigger=LostFocus}"
-                 VerticalAlignment="Top"
                  Width="120" />
 
     </Grid>
