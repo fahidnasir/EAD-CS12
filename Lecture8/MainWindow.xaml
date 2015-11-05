@@ -1,0 +1,53 @@
+﻿<Window x:Class="Lecture8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:VM="clr-namespace:Lecture8.ViewModels"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <VM:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="118*" />
+            <ColumnDefinition Width="399*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="label"
+               Content="Label"
+               HorizontalAlignment="Left"
+               Margin="24,105,0,0"
+               VerticalAlignment="Top" />
+        <TextBox x:Name="txtFirstName"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="86,71,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="txtLastName"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="86,33,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="txtFullName"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 IsEnabled="False"
+                 Margin="86,117,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=FullName, Mode=OneWay, UpdateSourceTrigger=LostFocus}"
+                 VerticalAlignment="Top"
+                 Width="120" />
+
+    </Grid>
+</Window>
