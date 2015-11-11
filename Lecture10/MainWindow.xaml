@@ -1,0 +1,115 @@
+﻿<Window x:Class="Lecture10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        xmlns:mylocalXAMLnamespace="clr-namespace:Lecture10"
+        Height="350"
+        Width="525">
+    <Window.Resources>
+        <mylocalXAMLnamespace:FullNameValueConverter x:Key="KeyOfFullNameValueConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64*" />
+            <RowDefinition Height="64*" />
+            <RowDefinition Height="63*" />
+            <RowDefinition Height="128*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label"
+               Content="Email"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               Margin="0,10,10,0" />
+        <Label x:Name="label1"
+               Content="First Name"
+               HorizontalAlignment="Right"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Margin="0,10,10,0" />
+        <Label x:Name="label2"
+               Content="Last Name"
+               HorizontalAlignment="Right"
+               Grid.Row="2"
+               VerticalAlignment="Top"
+               Width="67"
+               Margin="0,10,10,0" />
+        <StackPanel Grid.Column="1"
+                    Margin="10,10,68,10"
+                    Orientation="Horizontal">
+            <TextBox x:Name="txtEmail"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Background="Red"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="120" />
+            <TextBox x:Name="txtB"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Margin="10 0 10 0"
+                     Text="{Binding Background, ElementName=txtEmail, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, FallbackValue=Green}"
+                     TextWrapping="NoWrap"
+                     VerticalAlignment="Top"
+                     Width="62" />
+            <TextBox x:Name="txtC"
+                     Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Text="{Binding ElementName=txtEmail, Path=Width, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="NoWrap"
+                     VerticalAlignment="Top"
+                     Width="39" />
+
+        </StackPanel>
+        <CheckBox x:Name="cbIsEnabled"
+                  Content="IsEnabled"
+                  HorizontalAlignment="Left"
+                  Margin="10,10,0,0"
+                  Grid.Row="3"
+                  VerticalAlignment="Top"
+                  Grid.Column="1" />
+        <StackPanel Grid.Column="1"
+                    Margin="10,10,114,13"
+                    Orientation="Horizontal"
+                    Grid.Row="1">
+            <TextBox x:Name="txtFirstName"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="NoWrap"
+                     Text="{Binding FirstName}"
+                     VerticalAlignment="Top"
+                     Width="108" />
+            <TextBox x:Name="txtLastName"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Margin="10 0 0 0"
+                     Text="{Binding LastName}"
+                     TextWrapping="NoWrap"
+                     VerticalAlignment="Top"
+                     Width="114" />
+        </StackPanel>
+        <TextBox x:Name="txtFullName"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="10,10,0,0"
+                 Grid.Row="2"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="240">
+            <TextBox.Text>
+                <MultiBinding Converter="{StaticResource KeyOfFullNameValueConverter}">
+                    <Binding ElementName="txtFirstName"
+                             Path="Text" />
+                    <Binding ElementName="txtLastName"
+                             Path="Text" />
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+    </Grid>
+</Window>
