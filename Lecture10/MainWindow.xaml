@@ -5,6 +5,10 @@
         xmlns:mylocalXAMLnamespace="clr-namespace:Lecture10"
         Height="350"
         Width="525">
+    <Window.DataContext>
+        <mylocalXAMLnamespace:MainWindowViewModel />
+    </Window.DataContext>
+
     <Window.Resources>
         <mylocalXAMLnamespace:FullNameValueConverter x:Key="KeyOfFullNameValueConverter" />
         <mylocalXAMLnamespace:MyBoolConverter x:Key="KeyOfMyBoolConverter" />
@@ -15,7 +19,8 @@
             <RowDefinition Height="64*" />
             <RowDefinition Height="64*" />
             <RowDefinition Height="63*" />
-            <RowDefinition Height="128*" />
+            <RowDefinition Height="81*" />
+            <RowDefinition Height="47*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -27,13 +32,13 @@
                VerticalAlignment="Top"
                Margin="0,10,10,0" />
         <Label x:Name="label1"
-               Content="First Name"
+               Content="First Name / Last Name"
                HorizontalAlignment="Right"
                Grid.Row="1"
                VerticalAlignment="Top"
                Margin="0,10,10,0" />
         <Label x:Name="label2"
-               Content="Last Name"
+               Content="Full Name"
                HorizontalAlignment="Right"
                Grid.Row="2"
                VerticalAlignment="Top"
@@ -45,7 +50,7 @@
             <TextBox x:Name="txtEmail"
                      HorizontalAlignment="Left"
                      Height="23"
-                     Background="Red"
+                     Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="120" />
@@ -53,7 +58,7 @@
                      HorizontalAlignment="Left"
                      Height="23"
                      Margin="10 0 10 0"
-                     Text="{Binding Background, ElementName=txtEmail, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, FallbackValue=Green}"
+                     Text="{Binding Path=Background, ElementName=txtEmail, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, FallbackValue=Green}"
                      TextWrapping="NoWrap"
                      VerticalAlignment="Top"
                      Width="62" />
@@ -67,13 +72,6 @@
                      Width="39" />
 
         </StackPanel>
-        <CheckBox x:Name="cbIsHuman"
-                  Content="Are you Human"
-                  HorizontalAlignment="Left"
-                  Margin="10,10,0,0"
-                  Grid.Row="3"
-                  VerticalAlignment="Top"
-                  Grid.Column="1" />
         <StackPanel Grid.Column="1"
                     Margin="10,10,114,13"
                     Orientation="Horizontal"
@@ -82,14 +80,14 @@
                      HorizontalAlignment="Left"
                      Height="23"
                      TextWrapping="NoWrap"
-                     Text="{Binding FirstName}"
+                     Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      VerticalAlignment="Top"
                      Width="108" />
             <TextBox x:Name="txtLastName"
                      HorizontalAlignment="Left"
                      Height="23"
                      Margin="10 0 0 0"
-                     Text="{Binding LastName}"
+                     Text="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      TextWrapping="NoWrap"
                      VerticalAlignment="Top"
                      Width="114" />
@@ -100,7 +98,7 @@
                  Height="23"
                  Margin="10,10,0,0"
                  Grid.Row="2"
-                 TextWrapping="Wrap"
+                 IsEnabled="False"
                  VerticalAlignment="Top"
                  Width="240">
             <TextBox.Text>
@@ -112,6 +110,24 @@
                 </MultiBinding>
             </TextBox.Text>
         </TextBox>
+        <!--<TextBox x:Name="txtFullName"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="10,10,0,0"
+                 Grid.Row="2"
+                 Text="{Binding Path=FullName, Mode=OneWay}"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="240" />-->
+
+        <CheckBox x:Name="cbIsHuman"
+                  Content="Are you Human"
+                  HorizontalAlignment="Left"
+                  Margin="10,10,0,0"
+                  Grid.Row="3"
+                  VerticalAlignment="Top"
+                  Grid.Column="1" />
         <Label x:Name="lblIsEnabled"
                Content="{Binding ElementName=cbIsHuman, Path=IsChecked, Converter={StaticResource KeyOfMyBoolConverter}}"
                Grid.Column="1"
@@ -120,5 +136,15 @@
                Grid.Row="3"
                VerticalAlignment="Top"
                Width="200" />
+        <Button x:Name="button"
+                Content="Save"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="31,10,0,0"
+                Grid.Row="4"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="button_Click" />
+
     </Grid>
 </Window>
