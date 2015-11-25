@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+		
+		<style>
+			.redClass{
+				color: red;
+			}
+			.demoDiv{
+				width: 300;
+				height: 200;
+			}
+			#redDiv{
+				background-color: red;
+			}
+			#greenDiv{
+				background-color: green;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1 class="heading">This is Jquery Example</h1>
+		<h2 class="heading">This is Jquery Example</h2>
+		<h3 class="heading">This is Jquery Example</h3>
+		<h4 class="heading">This is Jquery Example</h4>
+		<h5 class="heading">This is Jquery Example</h5>
+		<h6 class="heading">This is Jquery Example</h6>
+
+		<input id='btnchangeHeading' type= "button" value="Change Headings Color"/>
+		<input id='btnresetHeading' type= "button" value="Reset Headings Color"/>
+		<input id='btnhideAllDivs' type= "button" value="Hide All Divs"/>
+		<input id='btnshowAllDivs' type= "button" value="Show All Divs"/>
+
+		<input id='btnhideRedDiv' type= "button" value="Toggle Red Div"/>
+		<input id='btnhideGreenDiv' type= "button" value="Hide Green Div"/>
+		<input id='btnanimateDivsBtn' type= "button" value="Animate Hide Divs"/>
+		<input id='btnanimateShowDivsBtn' type= "button" value="Animate Show Divs"/>
+		
+
+		<div class="demoDiv" id="redDiv">
+			<h1>This is Red Div</h1>
+		</div>
+		<div class="demoDiv" id="greenDiv">
+			<h1>This is Green Div</h1>
+		</div>
+	</body>
+</html>
+
+<script>
+	$(document).ready(function(){
+	
+		$("#btnchangeHeading").on("click", function(){
+			$("h1.heading,h2.heading").addClass("redClass");
+			// $(".heading").each(function(){
+			
+			// 	$(this).addClass("redClass");
+			// })
+		})
+		
+		$("#btnresetHeading").on("click", function(){
+			$(".heading").each(function(){
+				$(this).removeClass("redClass");
+			})
+		})
+		
+		$("#btnhideRedDiv").on("click", function(){
+			$("div.demoDiv#redDiv").each(function(){
+				$(this).toggle(500);
+			})
+		})
+
+		$("#btnhideGreenDiv").on("click", function(){
+			$("div.demoDiv#greenDiv").each(function(){
+				$(this).hide(500);
+			})
+		})
+
+		$("#btnhideAllDivs").on("click", function(){
+			$(".heading").each(function(){
+				$(this).hide(500);
+			})
+		})
+		
+		$("#btnshowAllDivs").on("click", function(){
+			$(".heading").each(function(){
+				$(this).show(500);
+			})
+		})
+
+		$("#btnanimateDivsBtn").on("click", function(){
+			$("div").animate({
+				height: "toggle",
+				opacity: 0.25
+			}, 5000, function(){
+				alert("Animation Complete.");
+			});
+		})
+
+		$("#btnanimateShowDivsBtn").on("click", function(){
+			$("div").animate({
+				height: "toggle",
+				opacity: 1
+			}, 5000, function(){
+				alert("Animation Complete.");
+			});
+		})
+	})
+</script>

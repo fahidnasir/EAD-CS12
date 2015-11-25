@@ -1,0 +1,60 @@
+﻿<Window x:Class="LinqExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        xmlns:local="clr-namespace:LinqExample">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <Label Content="Search: "
+                   Width="50"
+                   Margin="0,10,0,38" />
+            <TextBox x:Name="txtFilter"
+                     Width="200"
+                     KeyUp="txtFilter_KeyUp"
+                     Margin="20,10,0,38" />
+            <ComboBox x:Name="cmbFilterType"
+                      Width="100"
+                      Margin="20,10,0,38"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="ID" />
+                <ComboBoxItem Content="Name (Contains)" />
+                <ComboBoxItem Content="Email (Contains)" />
+                <ComboBoxItem Content="Address (Equals)" />
+                <ComboBoxItem Content="DOB" />
+                <ComboBoxItem Content="Age" />
+            </ComboBox>
+        </StackPanel>
+
+        <DataGrid x:Name="dgUsers"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}"
+                                    Header="Serial ID" />
+                <DataGridTextColumn Binding="{Binding Name}"
+                                    Header="Name" />
+                <DataGridTextColumn Binding="{Binding Email}"
+                                    Header="Email" />
+                <DataGridTextColumn Binding="{Binding Address}"
+                                    Header="Address" />
+                <DataGridTemplateColumn Header="Birthday">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Birthday}"
+                                        BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Age}"
+                                    Header="Age" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
