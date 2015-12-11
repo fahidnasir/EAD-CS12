@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "First Page";
+}
+
+<h2>Index</h2>
+<h4>@ViewBag.AnyThing</h4>
+
+@if (ViewBag.BooleanValue)
+{
+    <p>This paragraph shows only if we send True in 'BooleanValue'</p>
+    <p>ViewBag is the request specific builtin variable which used to send lightweight data across the controller-View and View-View</p>
+    <p>Complete data for the Page is sent by Model Binded to that Action/View/Screen</p>
+}
+
+<a href="@Url.Action("SecondPage", new { ab = 10, xy = "This is second parameter to the Action" })">Second Page with Parameters</a>

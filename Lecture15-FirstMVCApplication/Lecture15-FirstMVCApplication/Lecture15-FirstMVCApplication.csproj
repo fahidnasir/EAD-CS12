@@ -155,6 +155,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\First\Index.cshtml" />
+    <Content Include="Views\First\RemoveIt.cshtml" />
+    <Content Include="Views\First\RemoveItToo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

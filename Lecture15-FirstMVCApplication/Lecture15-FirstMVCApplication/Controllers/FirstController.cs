@@ -12,5 +12,13 @@ namespace Lecture15_FirstMVCApplication.Controllers
         {
             return View();
         }
+        public ActionResult RemoveIt()
+        {
+            return View();
+        }
+        public ActionResult RemoveItToo()
+        {
+            return View();
+        }
     }
 }
