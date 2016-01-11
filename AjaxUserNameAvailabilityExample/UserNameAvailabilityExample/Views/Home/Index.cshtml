@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="checking">Checking...</div>
+<div>
+
+    Name: <input type="text" name="UserName" id="UserName" /> <input type="button" id="b1" value="Check" />
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+               
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data)
+                {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+                        
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>
