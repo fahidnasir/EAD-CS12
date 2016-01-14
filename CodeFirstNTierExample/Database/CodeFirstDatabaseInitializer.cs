@@ -12,6 +12,7 @@ namespace Database
     {
         protected override void Seed(CFDbContext context)
         {
+            context.Users.Add(new Models.User() { Email = "admin@admin.com", Name = "Admin" });
             base.Seed(context);
         }
     }
