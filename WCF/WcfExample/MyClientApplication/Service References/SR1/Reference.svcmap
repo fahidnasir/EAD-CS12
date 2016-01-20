@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="15616d88-ae90-4816-b1e5-1e1f84b902e0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:48234/CarRentalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CarRentalService.xsd" MetadataType="Schema" ID="235bcc02-7890-4fff-bf51-216d87946d84" SourceId="1" SourceUrl="http://localhost:48234/CarRentalService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CarRentalService.disco" MetadataType="Disco" ID="11157d64-cb02-4f19-a8b4-9ccfde0b9ad5" SourceId="1" SourceUrl="http://localhost:48234/CarRentalService.svc?disco" />
+    <MetadataFile FileName="CarRentalService1.xsd" MetadataType="Schema" ID="3f5992e2-d669-4d94-a6ec-a31a60376c6f" SourceId="1" SourceUrl="http://localhost:48234/CarRentalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CarRentalService2.xsd" MetadataType="Schema" ID="fcfae313-c39f-4b46-8622-684b7eaf65f1" SourceId="1" SourceUrl="http://localhost:48234/CarRentalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CarRentalService.wsdl" MetadataType="Wsdl" ID="bd91dd4d-adba-43c7-84bb-2f791945c230" SourceId="1" SourceUrl="http://localhost:48234/CarRentalService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

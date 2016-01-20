@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfExample", "WcfExample\WcfExample.csproj", "{B66E0406-B2F6-4F3E-9982-3457196100E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClientApplication", "MyClientApplication\MyClientApplication.csproj", "{D90E3F62-80E1-459E-A841-DB5137A43563}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B66E0406-B2F6-4F3E-9982-3457196100E3} = {B66E0406-B2F6-4F3E-9982-3457196100E3}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B66E0406-B2F6-4F3E-9982-3457196100E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66E0406-B2F6-4F3E-9982-3457196100E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66E0406-B2F6-4F3E-9982-3457196100E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66E0406-B2F6-4F3E-9982-3457196100E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90E3F62-80E1-459E-A841-DB5137A43563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90E3F62-80E1-459E-A841-DB5137A43563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90E3F62-80E1-459E-A841-DB5137A43563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90E3F62-80E1-459E-A841-DB5137A43563}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

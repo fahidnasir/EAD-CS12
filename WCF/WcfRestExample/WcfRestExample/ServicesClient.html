@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $.ajax({
+            url: 'http://localhost:14193/MyRestService.svc/carPool/json/12',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                alert("Year =" + data.Year + " Make = " + data.Make);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    });
+
+    addCar();
+   
+        /////////////////////////////////////////////////////////////////////////////
+        function addCar() {
+            var car = {
+                Make: "xyz",
+                Year: 2006
+            };
+
+            $.ajax({
+                url: 'http://localhost:14193/MyRestService.svc/carPool/add',
+                type: 'POST',
+                data: JSON.stringify(car),
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    alert(data)
+                    getAllCars();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+
+        }  
+       
+    
+
+    ////////////////////////////////////////////////////////////////////////////
+        function getAllCars() {
+            $.ajax({
+                url: 'http://localhost:14193/MyRestService.svc/carPool/json/',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var output = "<ul>";
+                    for (var i in data) {
+                        output += "<li>" + data[i].Make + " " + data[i].Year + "</li>";
+                    }
+                    output += "</ul>";
+
+                    document.getElementById("placeholder").innerHTML = output;
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        ////////////////////////////////////////////////////////////////////////////
+
+        function deleteCar() {
+           
+
+            $.ajax({
+                url: 'http://localhost:14193/MyRestService.svc/CarPool/1',
+                type: 'DELETE',
+                dataType: 'json',
+               
+                success: function (data) {
+                    alert(data)
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+            
+        }
+    /////////////////////////////////////////////////////////////////////////////
+        function UpadteCar() {
+
+            var car = {
+                Make: "xyz",
+                Year: 2006
+            };
+            $.ajax({
+                url: 'http://localhost:14193/MyRestService.svc/CarPool/1',
+                type: 'PUT',
+                dataType: 'json',
+                data: JSON.stringify(car),
+                contentType: "application/json;charset=utf-8",
+               success: function (data) {
+                    alert(data)
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+
+        }
+
+        deleteCar();
+        UpadteCar();
+</script>
+    
+
+</head>
+<body>
+    <div id="placeholder">
+        
+    </div>
+</body>
+</html>
