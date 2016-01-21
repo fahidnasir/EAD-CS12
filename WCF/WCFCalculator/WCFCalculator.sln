@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFCalculator", "WCFCalculator\WCFCalculator.csproj", "{72255A57-CEC0-4D1F-B484-CED0B5D111CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFClient", "WCFClient\WCFClient.csproj", "{D0E3A371-47CB-49E9-AB50-01E27AE2701C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72255A57-CEC0-4D1F-B484-CED0B5D111CB} = {72255A57-CEC0-4D1F-B484-CED0B5D111CB}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{72255A57-CEC0-4D1F-B484-CED0B5D111CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72255A57-CEC0-4D1F-B484-CED0B5D111CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72255A57-CEC0-4D1F-B484-CED0B5D111CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E3A371-47CB-49E9-AB50-01E27AE2701C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E3A371-47CB-49E9-AB50-01E27AE2701C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E3A371-47CB-49E9-AB50-01E27AE2701C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E3A371-47CB-49E9-AB50-01E27AE2701C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
